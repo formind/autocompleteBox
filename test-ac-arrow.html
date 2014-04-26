@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Adding a Property</title>
+</head>
+
+
+<body class="yui3-skin-sam">
+
+<div class="example">
+    
+	<div id="demo" class="yui3-skin-sam"> <!-- You need this skin class -->
+	<label for="ac-input">Enter the name of a US state:</label><br>
+	<input id="ac-input" type="text" style="width:350px;height:35px;background-color:#aaff00;color:#400101">
+	
+</div>
+
+
+<script src="yui/build/yui/yui.js"></script>
+<script src="autocomplete-arrow.js"></script>
+
+<script>
+
+
+YUI().use('autocomplete-arrow', function (Y) {
+    var ac = new Y.AutoCompleteArrow({
+					inputNode: '#ac-input',
+					/*activateFirstItem	: true,*/
+					source   : ['friends', 'Romans', 'countrymen','Florida',
+									'Georgia',
+									'Hawaii',
+									'Idaho',
+									'Illinois',
+									'Indiana',
+									'Iowa',
+									'Kansas',
+									'Kentucky',
+									'Louisiana']
+		});
+    ac.render( );
+});
+</script>
+</body>
+</html>
