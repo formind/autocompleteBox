@@ -12,8 +12,8 @@ var Lang   = Y.Lang,
     ID               = 'id',
     LIST             = 'list',
 
-	ARROW_CONTENT	 = '<span title="Bezárás">' +
-						'<span title="Bezárás"></span></span>';
+	ARROW_CONTENT	 = '<span title="close">' +
+				'<span title="close"></span></span>';
     
 	_CLASS_DROPARROW = '_CLASS_DROPARROW';	
 	
