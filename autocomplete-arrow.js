@@ -121,7 +121,7 @@ Y.AutoCompleteArrow = Y.extend(AutoCompleteArrow, Y.AutoCompleteList, {
             'aria-owns'        : listNode.get('id')
         });
 
-		if (this.get("withArrow") === false ){
+		if (this.get("withArrow") === true ){
 			var dropArrowNode = this._createDropArrow();
 			parentNode.append( dropArrowNode );
 			//
