@@ -1,0 +1,65 @@
+/*
+YUI 3.15.0 (build 834026e)
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+
+.yui3-autocompletearrow{position:absolute;z-index:1}
+.yui3-autocompletearrow-hidden{visibility:hidden}
+.yui3-autocompletearrow-aria{left:-9999px;position:absolute}
+.yui3-autocompletearrow-list{list-style:none;margin:0;overflow:hidden;padding:0}
+.yui3-autocompletearrow-item{cursor:pointer;list-style:none;padding:2px 5px}
+.yui3-autocompletearrow-item-active{outline:#afafaf dotted thin}
+.yui3-skin-sam .yui3-autocompletearrow-content{
+	background:#fff;border:1px solid #afafaf;
+	-moz-box-shadow:1px 1px 4px rgba(0,0,0,0.58);
+	-webkit-box-shadow:1px 1px 4px rgba(0,0,0,0.58);
+	box-shadow:1px 1px 4px rgba(0,0,0,0.58)
+}
+
+.yui3-skin-sam .yui3-autocompletearrow-item-hover{background:#bfdaff}
+.yui3-skin-sam .yui3-autocompletearrow-item-active{background:#2647a0;color:#fff;outline:0}
+#yui3-css-stamp.skin-sam-autocomplete-list{display:none}
+
+
+.yui3-autocompletearrow-dropbutton{
+/* Size and position */
+
+    /* position: relative;  Enable absolute positionning for children and pseudo elements */
+    width: 0px;
+	height : 0px;
+	position: absolute;
+    margin: 0 auto;
+    /* padding: 10px 15px; */
+	/* border-width: 0 6px 6px 6px; */
+    /* Styles */
+    background: #fff;
+    border-left: 2px solid grey;
+    cursor: pointer;
+    outline: none;
+}
+
+.yui3-autocompletearrow-dropbutton:after{
+    content: "";
+    width: 0px;
+    height: 0;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: grey transparent;
+}
+
+/* Active state */
+
+.yui3-autocompletearrow-dropbutton.active:after {
+    border-width: 0 6px 6px 6px;
+}
+
+.yui3-autocompletearrow-dropbutton.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+}
