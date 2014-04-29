@@ -60,7 +60,10 @@ Y.AutoCompleteArrow = Y.extend(AutoCompleteArrow, Y.AutoCompleteList, {
 	
 	_dropkeydown : function(e){
 		if (e.type === "keydown" && e.keyCode === 40 ){
-			this._dropArrowNode.addClass("active");
+			//this._dropArrowNode.addClass("active");
+			if ( !this.get("visible") ){
+				this._showList(e);
+			}
 		} else if (e.type === "keydown" && e.keyCode === 13 ){
 			this._dropArrowNode.removeClass("active");
 		}
@@ -69,16 +72,17 @@ Y.AutoCompleteArrow = Y.extend(AutoCompleteArrow, Y.AutoCompleteList, {
 	_showList : function(e){
 		Y.log("_showList");
 		var self = this;
-		self._dropped = this._dropArrowNode.hasClass("active") === false ? 1 : 0;
-		
-		this._dropArrowNode.toggleClass("active");
-		Y.log( this._dropArrowNode.hasClass("active") );
+		self._dropped = self._dropArrowNode.hasClass("active") === true ? 1 : 0;
 		
 		self._inputNode.focus();
+		e.stopPropagation();
+		
 		var request,
             source;
-		if (self._dropped === 1 ){
+		
+		if (self._dropped === 0 ){
 			Y.log(self._inputNode.get("value"));
+			self._dropArrowNode.addClass("active");
 			source = self.get('source');
 			if (source) {
 				source.sendRequest({
@@ -88,19 +92,12 @@ Y.AutoCompleteArrow = Y.extend(AutoCompleteArrow, Y.AutoCompleteList, {
 					callback: {
 						success: Y.bind(self._onResponse, self, "")
 					}
-
 				});
 			}
-			
-			if ( self._inputNode.get("value") === "" ){
-				
-			} else {
-				self.show();
-				Y.log("show lenne");
-			}
-			e.stopPropagation();
+			self.show();
 		} else {
 			self.hide();
+			self._dropArrowNode.removeClass("active");
 			Y.log("hide ");
 		}
 		return self;
