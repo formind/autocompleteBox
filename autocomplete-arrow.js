@@ -82,6 +82,7 @@ Y.AutoCompleteArrow = Y.extend(AutoCompleteArrow, Y.AutoCompleteList, {
 		
 		if (self._dropped === 0 ){
 			Y.log(self._inputNode.get("value"));
+			var vv = self._inputNode.get("value");
 			self._dropArrowNode.addClass("active");
 			source = self.get('source');
 			if (source) {
@@ -95,6 +96,7 @@ Y.AutoCompleteArrow = Y.extend(AutoCompleteArrow, Y.AutoCompleteList, {
 				});
 			}
 			self.show();
+			self.set("value", vv);
 		} else {
 			self.hide();
 			self._dropArrowNode.removeClass("active");
